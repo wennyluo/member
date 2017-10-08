@@ -1,0 +1,59 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="UTF-8"> 
+<title>注册系统</title> 
+<style type="text/css"> 
+form { 
+  text-align: center; 
+} 
+</style> 
+</head> 
+<body> 
+  
+  <form action="register.php" method="post" name="form_register"
+    onsubmit="return check()"> 
+    用户名<input type="text" name="username" id="username"><br> 
+    密码<input type="password" name="password" id="password"><br> 
+    确认密码<input type="password" name="assertpassword" id="assertpassword"><br> 
+	真实姓名<input type="text" name="truename" id="truename"><br>
+	性别<input type="text" name="sex" id="sex"><br>
+	电子邮箱<input type="text" name="email" id="email"><br>
+	电话号码<input type="text" name="tel" id="tel"><br>
+	密保问题<input type="text" name="question" id="question"><br>
+	密保答案<input type="text" name="answer" id="answer"><br>
+	是否为普通用户<input type="text" name="authority" id="authority"><br>
+    <input type="submit" value="注册"> 
+  
+  </form> 
+  
+  <script type="text/javascript"> 
+    function check() { 
+      var username=document.getElementById("username").value; 
+      var password=document.getElementById("password").value; 
+      var assertpassword=document.getElementById("assertpassword").value; 
+	  var truename=document.getElementById("truename").value;
+	  var sex=document.getElementById("sex").value;
+	  var email=document.getElementById("email").value;
+	  var tel=document.getElementById("tel").value;
+	  var question=document.getElementById("question").value;
+	  var answer=document.getElementById("answer").value;
+	  var authority=document.getElementById("authority").value;
+      var regex=/^[/s]+$/; 
+        
+      if(regex.test(username)||username.length==0){ 
+        alert("用户名格式不对"); 
+        return false; 
+      } 
+      if(regex.test(password)||password.length==0){ 
+        alert("密码格式不对"); 
+        return false;     
+      } 
+      if(password!=assertpassword){ 
+        alert("两次密码不一致"); 
+        return false; 
+      } 
+    } 
+  </script> 
+</body> 
+</html> 
