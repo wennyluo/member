@@ -2,7 +2,7 @@
 <html> 
 <head> 
 <meta charset="UTF-8"> 
-<title>×¢²áÏµÍ³</title> 
+<title>æ³¨å†Œç³»ç»Ÿ</title> 
 <style type="text/css"> 
 form { 
   text-align: center; 
@@ -10,49 +10,57 @@ form {
 </style> 
 </head> 
 <body> 
-  
-  <form action="register.php" method="post" name="form_register"
-    onsubmit="return check()"> 
-    ÓÃ»§Ãû<input type="text" name="username" id="username"><br> 
-    ÃÜÂë<input type="password" name="password" id="password"><br> 
-    È·ÈÏÃÜÂë<input type="password" name="assertpassword" id="assertpassword"><br> 
-	ÕæÊµĞÕÃû<input type="text" name="truename" id="truename"><br>
-	ĞÔ±ğ<input type="text" name="sex" id="sex"><br>
-	µç×ÓÓÊÏä<input type="text" name="email" id="email"><br>
-	µç»°ºÅÂë<input type="text" name="tel" id="tel"><br>
-	ÃÜ±£ÎÊÌâ<input type="text" name="question" id="question"><br>
-	ÃÜ±£´ğ°¸<input type="text" name="answer" id="answer"><br>
-	ÊÇ·ñÎªÆÕÍ¨ÓÃ»§<input type="text" name="authority" id="authority"><br>
-    <input type="submit" value="×¢²á"> 
-  
+  <h1 align="center">ç”¨æˆ·æ³¨å†Œ</h1>
+  <p align="center"><font color="#FF0000">ä»¥ä¸‹å†…å®¹è¯·å¦‚å®å¡«å†™ï¼Œå…¶ä¸­å¸¦æœ‰*å·çš„æ ç›®æ˜¯å¿…é¡»å¡«å†™çš„</font>
+  <form action="register.php" method="post" name="form_register" onsubmit="return check()"> 
+    <p>ç”¨æˆ·å<input type="text" name="username" id="username">*
+    <p>å¯†ç <input type="password" name="password" id="password">* 
+    <p>ç¡®è®¤å¯†ç <input type="password" name="assertpassword" id="assertpassword">* 
+    <p>çœŸå®å§“å<input type="text" name="truename" id="truename">*
+    <p>æ€§åˆ«<input type="Radio" name="sex" value="male" id="sex" checked>ç”·
+   		  <input type="Radio" name="sex" value="female" id="sex">å¥³*
+    <p>ç”µå­é‚®ç®±<input type="text" name="email" id="email"> 
+    <p>ç”µè¯<input type="text" name="tel" id="tel">*
+    <p>å¯†ä¿é—®é¢˜<input type="text" name="question" id="question">
+    <p>å¯†ä¿ç­”æ¡ˆ<input type="text" name="answer" id="answer"> 
+    <p>ç”¨æˆ·æƒé™<input type="text" name="authority" id="authority">
+    <p><input type="submit" value="æ³¨å†Œ"> 
   </form> 
+  <p align="center"><a href="index.html">å–æ¶ˆ</a>
   
   <script type="text/javascript"> 
     function check() { 
       var username=document.getElementById("username").value; 
       var password=document.getElementById("password").value; 
-      var assertpassword=document.getElementById("assertpassword").value; 
+      var assertpassword=document.getElementById("assertpassword").value;
 	  var truename=document.getElementById("truename").value;
-	  var sex=document.getElementById("sex").value;
-	  var email=document.getElementById("email").value;
 	  var tel=document.getElementById("tel").value;
-	  var question=document.getElementById("question").value;
-	  var answer=document.getElementById("answer").value;
-	  var authority=document.getElementById("authority").value;
       var regex=/^[/s]+$/; 
         
       if(regex.test(username)||username.length==0){ 
-        alert("ÓÃ»§Ãû¸ñÊ½²»¶Ô"); 
+        alert("ç”¨æˆ·åæ ¼å¼ä¸å¯¹"); 
         return false; 
       } 
       if(regex.test(password)||password.length==0){ 
-        alert("ÃÜÂë¸ñÊ½²»¶Ô"); 
+        alert("å¯†ç æ ¼å¼ä¸å¯¹"); 
         return false;     
       } 
       if(password!=assertpassword){ 
-        alert("Á½´ÎÃÜÂë²»Ò»ÖÂ"); 
+        alert("ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´"); 
         return false; 
-      } 
+      }
+	  if(regex.test(truename)||truename.length==0){ 
+        alert("çœŸå®å§“åæ ¼å¼ä¸å¯¹"); 
+        return false;     
+      }
+	  if(regex.test(password)||password.length==0){ 
+        alert("å¯†ç æ ¼å¼ä¸å¯¹"); 
+        return false;     
+      }
+	  if(regex.test(tel)||tel.length==0){ 
+        alert("ç”µè¯æ ¼å¼ä¸å¯¹"); 
+        return false;     
+      }
     } 
   </script> 
 </body> 

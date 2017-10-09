@@ -1,43 +1,47 @@
-<!DOCTYPE html>
-<p>
-</p><pre name="code" class="html">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-<title>µÇÂ¼×¢²áĞŞ¸ÄÃÜÂëÏµÍ³Ö÷Ò³</title>
-<style type="text/css">
-form{
-text-align: center;
-}
-</style>
-</head>
-<body>
-<form action="enter.php" method="post" onsubmit="return enter()">
-ÓÃ»§Ãû<input type="text" name="username" id="username"><br>ÃÜÂë<input type="password" name="password" id="password"><br> <input type="submit" value="µÇÂ¼"> <input type="button" value="×¢²á" onclick="register();">
-</form>
-
-<script type="text/javascript">
-function enter()
-{
-	var username=document.getElementById("username").value;//»ñÈ¡formÖĞµÄÓÃ»§Ãû
-	var password=document.getElementById("password").value;
-	var regex=/^[/s]+$/;//ÉùÃ÷Ò»¸öÅĞ¶ÏÓÃ»§ÃûÇ°ºóÊÇ·ñÓĞ¿Õ¸ñµÄÕıÔò±í´ïÊ½
-	if(regex.test(username)||username.length==0)//ÅĞ¶ÏÓÃ»§ÃûµÄÊÇ·ñÇ°ºóÓĞ¿Õ¸ñ»òÕßÓÃ»§ÃûÊÇ·ñÎª¿Õ
-	{
-		alert("ÓÃ»§Ãû¸ñÊ½²»¶Ô");
-		return false;
-	}
-	if(regex.test(password)||password.length==0)//Í¬ÉÏÊöÄÚÈİ
-	{
-		alert("ÃÜÂë¸ñÊ½²»¶Ô");
-		return false;
-	}
-	return ture;
-}
-function register()
-{
-	window.location.href="register.html";//Ìø×ªµ½×¢²áÒ³Ãæ
-}
-</script>
-</body>
-</html>
+<p> 
+  </p><pre name="code" class="html"> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8"> 
+<title>ç™»å½•æ³¨å†Œä¿®æ”¹å¯†ç ç³»ç»Ÿä¸»é¡µ</title> 
+<style type="text/css"> 
+form { 
+  text-align: center; 
+} 
+</style> 
+</head> 
+<body> 
+  <form action="enter.php" method="post" onsubmit="return enter()"> 
+    ç”¨æˆ·å<input type="text" name="username" id="username"><br> å¯†ç <input
+      type="password" name="password" id="password"><br> <input
+      type="submit" value="ç™»å½•">  <input type="button"
+      value="æ³¨å†Œ" onclick="register();"> 
+  
+  </form> 
+  
+  <script type="text/javascript"> 
+    function enter() 
+    { 
+      var username=document.getElementById("username").value;//è·å–formä¸­çš„ç”¨æˆ·å 
+      var password=document.getElementById("password").value; 
+      var regex=/^[/s]+$/;//å£°æ˜ä¸€ä¸ªåˆ¤æ–­ç”¨æˆ·åå‰åæ˜¯å¦æœ‰ç©ºæ ¼çš„æ­£åˆ™è¡¨è¾¾å¼ 
+      if(regex.test(username)||username.length==0)//åˆ¤å®šç”¨æˆ·åçš„æ˜¯å¦å‰åæœ‰ç©ºæ ¼æˆ–è€…ç”¨æˆ·åæ˜¯å¦ä¸ºç©º 
+        { 
+          alert("ç”¨æˆ·åæ ¼å¼ä¸å¯¹"); 
+          return false; 
+        } 
+      if(regex.test(password)||password.length==0)//åŒä¸Šè¿°å†…å®¹ 
+      { 
+        alert("å¯†ç æ ¼å¼ä¸å¯¹"); 
+        return false; 
+      } 
+      return true; 
+    } 
+    function register() 
+    { 
+      window.location.href="register.html";//è·³è½¬åˆ°æ³¨å†Œé¡µé¢ 
+    } 
+  </script> 
+</body> 
+</html> 

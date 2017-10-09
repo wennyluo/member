@@ -5,7 +5,7 @@
 </head> 
 <body> 
 <?php
-session_start ();//将session销毁时调用destroy 
+session_start ();//灏唖ession閿�姣佹椂璋冪敤destroy 
 session_destroy (); 
 ?> 
 <script type="text/javascript"> 

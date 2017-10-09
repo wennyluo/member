@@ -2,7 +2,7 @@
 <html> 
 <head> 
 <meta charset="UTF-8"> 
-<title>ÕıÔÚĞŞ¸ÄÃÜÂë</title> 
+<title>æ­£åœ¨ä¿®æ”¹å¯†ç </title> 
 </head> 
 <body> 
   <?php
@@ -10,32 +10,33 @@
   $username = $_REQUEST ["username"]; 
   $oldpassword = $_REQUEST ["oldpassword"]; 
   $newpassword = $_REQUEST ["newpassword"]; 
-
-  $conn=new mysqli('localhost','root','wenny673','member');
-   if(mysqli_connect_errno())
-     {
-      echo 'Error: Can not connect to database.';
-      }
-
-  $dbusername=null;
-  $dbpassword=null;
-  $result=mysqli_query($conn,"select * from webuser where username='{$username}'");
-  while ($row=mysqli_fetch_array($result)) {//whileÑ­»·½«$resultÖĞµÄ½á¹ûÕÒ³öÀ´ 
+    
+  $conn=mysqli_connect("localhost","root","wenny673","member"); 
+	// æ£€æŸ¥è¿æ¥ 
+	if (!$conn) 
+	{ 
+    	die("è¿æ¥é”™è¯¯: " . mysqli_connect_error()); 
+	} 
+    
+    $dbusername=null; 
+    $dbpassword=null; 
+    $result=mysqli_query($conn,"select * from webuser where username ='{$username}'");//æŸ¥å‡ºå¯¹åº”ç”¨æˆ·åçš„ä¿¡æ¯
+    while ($row=mysqli_fetch_array($result)) {//whileå¾ªç¯å°†$resultä¸­çš„ç»“æœæ‰¾å‡ºæ¥ 
       $dbusername=$row["username"]; 
       $dbpassword=$row["password"]; 
     } 
-    if (is_null($dbusername)) {//ÓÃ»§ÃûÔÚÊı¾İ¿âÖĞ²»´æÔÚÊ±Ìø»Øindex.html½çÃæ 
-?> 
-<script type="text/javascript"> 
-    alert("ÓÃ»§Ãû²»´æÔÚ"); 
+    if (is_null($dbusername)) {//ç”¨æˆ·ååœ¨æ•°æ®åº“ä¸­ä¸å­˜åœ¨æ—¶è·³å›index.htmlç•Œé¢ 
+  ?> 
+  <script type="text/javascript"> 
+    alert("ç”¨æˆ·åä¸å­˜åœ¨"); 
     window.location.href="alter_password.html"; 
-  </script> 
+  </script>  
 <?php
   } 
   if ($oldpassword != $dbpassword) { 
     ?> 
   <script type="text/javascript"> 
-    alert("ÃÜÂë´íÎó"); 
+    alert("å¯†ç é”™è¯¯"); 
     window.location.href="alter_password.html"; 
   </script> 
   <?php
@@ -45,7 +46,7 @@
    {
 	   ?>
   <script type="text/javascript"> 
-    alert("ÃÜÂëĞŞ¸Ä³É¹¦"); 
+    alert("å¯†ç ä¿®æ”¹æˆåŠŸ"); 
     window.location.href="index.html"; 
   </script> 
 	<?php

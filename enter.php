@@ -1,48 +1,50 @@
-<!doctype html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-<title>µÇÂ¼ÏµÍ³µÄºóÌ¨Ö´ĞĞ¹ı³Ì</title>
-</head>
-<body>
+<!doctype html> 
+<html> 
+<head> 
+  <meta charset="UTF-8"> 
+  <title>ç™»å½•ç³»ç»Ÿçš„åå°æ‰§è¡Œè¿‡ç¨‹</title> 
+</head> 
+<body> 
 <?php
-session_start();//µÇÂ¼ÏµÍ³¿ªÆôÒ»¸ösessionÄÚÈİ
-$username=$_REQUEST["username"];//»ñÈ¡htmlÖĞµÄÓÃ»§Ãû£¨Í¨¹ıpostÇëÇó£©
-$password=$_REQUEST["password"];//»ñÈ¡htmlÖĞµÄÃÜÂë£¨Í¨¹ıpostÇëÇó£©
-
-$conn=new mysqli('localhost','root','wenny673','member');
- if(mysqli_connect_errno())
- {
-      echo 'Error: Can not connect to database.';
-  }
+    session_start();//ç™»å½•ç³»ç»Ÿå¼€å¯ä¸€ä¸ªsessionå†…å®¹ 
+    $username=$_REQUEST["username"];//è·å–htmlä¸­çš„ç”¨æˆ·åï¼ˆé€šè¿‡postè¯·æ±‚ï¼‰ 
+    $password=$_REQUEST["password"];//è·å–htmlä¸­çš„å¯†ç ï¼ˆé€šè¿‡postè¯·æ±‚ï¼‰ 
   
-  $dbusername=null;
-  $dbpassword=null;
-  $result=mysqli_query($conn,"select * from webuser where username='{$username}'");
-  while ($row=mysqli_fetch_array($result)) {//whileÑ­»·½«$resultÖĞµÄ½á¹ûÕÒ³öÀ´ 
+
+	$conn=mysqli_connect("localhost","root","wenny673","member"); 
+	// æ£€æŸ¥è¿æ¥ 
+	if (!$conn) 
+	{ 
+    	die("è¿æ¥é”™è¯¯: " . mysqli_connect_error()); 
+	} 
+    
+    $dbusername=null; 
+    $dbpassword=null; 
+    $result=mysqli_query($conn,"select * from webuser where username ='{$username}'");//æŸ¥å‡ºå¯¹åº”ç”¨æˆ·åçš„ä¿¡æ¯
+    while ($row=mysqli_fetch_array($result)) {//whileå¾ªç¯å°†$resultä¸­çš„ç»“æœæ‰¾å‡ºæ¥ 
       $dbusername=$row["username"]; 
       $dbpassword=$row["password"]; 
     } 
-    if (is_null($dbusername)) {//ÓÃ»§ÃûÔÚÊı¾İ¿âÖĞ²»´æÔÚÊ±Ìø»Øindex.html½çÃæ 
-?> 
-<script type="text/javascript"> 
-    alert("ÓÃ»§Ãû²»´æÔÚ"); 
+    if (is_null($dbusername)) {//ç”¨æˆ·ååœ¨æ•°æ®åº“ä¸­ä¸å­˜åœ¨æ—¶è·³å›index.htmlç•Œé¢ 
+  ?> 
+  <script type="text/javascript"> 
+    alert("ç”¨æˆ·åä¸å­˜åœ¨"); 
     window.location.href="index.html"; 
-  </script>
+  </script> 
 <?php 
     } 
     else { 
-      if ($dbpassword!=$password){//µ±¶ÔÓ¦ÃÜÂë²»¶ÔÊ±Ìø»Øindex.html½çÃæ 
+      if ($dbpassword!=$password){//å½“å¯¹åº”å¯†ç ä¸å¯¹æ—¶è·³å›index.htmlç•Œé¢ 
   ?> 
   <script type="text/javascript"> 
-    alert("ÃÜÂë´íÎó"); 
+    alert("å¯†ç é”™è¯¯"); 
     window.location.href="index.html"; 
   </script> 
  <?php 
       } 
       else { 
-        $_SESSION["username"]=$username; 
-        $_SESSION["code"]=mt_rand(0, 100000);//¸øsession¸½Ò»¸öËæ»úÖµ£¬·ÀÖ¹ÓÃ»§Ö±½ÓÍ¨¹ıµ÷ÓÃ½çÃæ·ÃÎÊwelcome.php 
+        $_SESSION['username']=$username; 
+        $_SESSION['code']=mt_rand(0, 100000);//ç»™sessioné™„ä¸€ä¸ªéšæœºå€¼ï¼Œé˜²æ­¢ç”¨æˆ·ç›´æ¥é€šè¿‡è°ƒç”¨ç•Œé¢è®¿é—®welcome.php 
   ?> 
   <script type="text/javascript"> 
     window.location.href="welcome.php"; 
@@ -50,7 +52,7 @@ $conn=new mysqli('localhost','root','wenny673','member');
   <?php 
       } 
     } 
-   $conn->close();//¹Ø±ÕÊı¾İ¿âÁ¬½Ó£¬Èç²»¹Ø±Õ£¬ÏÂ´ÎÁ¬½ÓÊ±»á³ö´í 
+   $conn->close();//å…³é—­æ•°æ®åº“è¿æ¥ï¼Œå¦‚ä¸å…³é—­ï¼Œä¸‹æ¬¡è¿æ¥æ—¶ä¼šå‡ºé”™ 
    ?>
-</body>
-</html>
+</body> 
+</html> 
